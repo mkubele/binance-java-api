@@ -1,6 +1,6 @@
 package com.binance.api.client.exception;
 
-import com.binance.api.client.BinanceApiError;
+import com.binance.api.client.api.BinanceApiError;
 
 /**
  * An exception which can occur while invoking methods of the Binance API.

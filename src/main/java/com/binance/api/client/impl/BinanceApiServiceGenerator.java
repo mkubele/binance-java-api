@@ -1,7 +1,7 @@
 package com.binance.api.client.impl;
 
-import com.binance.api.client.BinanceApiError;
-import com.binance.api.client.config.BinanceApiConfig;
+import com.binance.api.client.api.BinanceApiError;
+import com.binance.api.client.api.BinanceApiService;
 import com.binance.api.client.exception.BinanceApiException;
 import com.binance.api.client.security.AuthenticationInterceptor;
 import okhttp3.Dispatcher;
@@ -38,33 +38,12 @@ public class BinanceApiServiceGenerator {
 
     @SuppressWarnings("unchecked")
     private static final Converter<ResponseBody, BinanceApiError> errorBodyConverter =
-            (Converter<ResponseBody, BinanceApiError>)converterFactory.responseBodyConverter(
+            (Converter<ResponseBody, BinanceApiError>) converterFactory.responseBodyConverter(
                     BinanceApiError.class, new Annotation[0], null);
 
-    public static <S> S createService(Class<S> serviceClass) {
-        return createService(serviceClass, null, null);
-    }
-
-    /**
-     * Create a Binance API service.
-     *
-     * @param serviceClass the type of service.
-     * @param apiKey Binance API key.
-     * @param secret Binance secret.
-     *
-     * @return a new implementation of the API endpoints for the Binance API service.
-     */
-    public static <S> S createService(Class<S> serviceClass, String apiKey, String secret) {
-        String baseUrl = null;
-        if (!BinanceApiConfig.useTestnet) { baseUrl = BinanceApiConfig.getApiBaseUrl(); }
-        else {
-            baseUrl = /*BinanceApiConfig.useTestnetStreaming ?
-                BinanceApiConfig.getStreamTestNetBaseUrl() :*/
-                BinanceApiConfig.getTestNetBaseUrl();
-        }
-
+    public static <S> S createService(Class<S> serviceClass, String apiKey, String secret, String apiUrl) {
         Retrofit.Builder retrofitBuilder = new Retrofit.Builder()
-                .baseUrl(baseUrl)
+                .baseUrl(apiUrl)
                 .addConverterFactory(converterFactory);
 
         if (StringUtils.isEmpty(apiKey) || StringUtils.isEmpty(secret)) {

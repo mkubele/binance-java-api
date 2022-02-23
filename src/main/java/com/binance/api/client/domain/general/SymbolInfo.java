@@ -13,159 +13,168 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SymbolInfo {
 
-  private String symbol;
+    private String symbol;
+    private SymbolStatus status;
+    private String baseAsset;
+    private Integer baseAssetPrecision;
+    private String quoteAsset;
+    private Integer quotePrecision;
+    private List<OrderType> orderTypes;
+    private boolean icebergAllowed;
+    private boolean ocoAllowed;
+    private boolean quoteOrderQtyMarketAllowed;
+    private boolean isSpotTradingAllowed;
+    private boolean isMarginTradingAllowed;
+    private int pricePrecision;
+    private int quantityPrecision;
 
-  private SymbolStatus status;
+    private List<SymbolFilter> filters;
 
-  private String baseAsset;
+    public String getSymbol() {
+        return symbol;
+    }
 
-  private Integer baseAssetPrecision;
+    public void setSymbol(String symbol) {
+        this.symbol = symbol;
+    }
 
-  private String quoteAsset;
+    public SymbolStatus getStatus() {
+        return status;
+    }
 
-  private Integer quotePrecision;
+    public void setStatus(SymbolStatus status) {
+        this.status = status;
+    }
 
-  private List<OrderType> orderTypes;
+    public String getBaseAsset() {
+        return baseAsset;
+    }
 
-  private boolean icebergAllowed;
+    public void setBaseAsset(String baseAsset) {
+        this.baseAsset = baseAsset;
+    }
 
-  private boolean ocoAllowed;
+    public Integer getBaseAssetPrecision() {
+        return baseAssetPrecision;
+    }
 
-  private boolean quoteOrderQtyMarketAllowed;
+    public void setBaseAssetPrecision(Integer baseAssetPrecision) {
+        this.baseAssetPrecision = baseAssetPrecision;
+    }
 
-  private boolean isSpotTradingAllowed;
+    public String getQuoteAsset() {
+        return quoteAsset;
+    }
 
-  private boolean isMarginTradingAllowed;
+    public void setQuoteAsset(String quoteAsset) {
+        this.quoteAsset = quoteAsset;
+    }
 
-  private List<SymbolFilter> filters;
+    public Integer getQuotePrecision() {
+        return quotePrecision;
+    }
 
-  public String getSymbol() {
-    return symbol;
-  }
+    public void setQuotePrecision(Integer quotePrecision) {
+        this.quotePrecision = quotePrecision;
+    }
 
-  public void setSymbol(String symbol) {
-    this.symbol = symbol;
-  }
+    public List<OrderType> getOrderTypes() {
+        return orderTypes;
+    }
 
-  public SymbolStatus getStatus() {
-    return status;
-  }
+    public void setOrderTypes(List<OrderType> orderTypes) {
+        this.orderTypes = orderTypes;
+    }
 
-  public void setStatus(SymbolStatus status) {
-    this.status = status;
-  }
+    public boolean isIcebergAllowed() {
+        return icebergAllowed;
+    }
 
-  public String getBaseAsset() {
-    return baseAsset;
-  }
+    public void setIcebergAllowed(boolean icebergAllowed) {
+        this.icebergAllowed = icebergAllowed;
+    }
 
-  public void setBaseAsset(String baseAsset) {
-    this.baseAsset = baseAsset;
-  }
+    public boolean isOcoAllowed() {
+        return ocoAllowed;
+    }
 
-  public Integer getBaseAssetPrecision() {
-    return baseAssetPrecision;
-  }
+    public void setOcoAllowed(boolean ocoAllowed) {
+        this.ocoAllowed = ocoAllowed;
+    }
 
-  public void setBaseAssetPrecision(Integer baseAssetPrecision) {
-    this.baseAssetPrecision = baseAssetPrecision;
-  }
+    public boolean isQuoteOrderQtyMarketAllowed() {
+        return quoteOrderQtyMarketAllowed;
+    }
 
-  public String getQuoteAsset() {
-    return quoteAsset;
-  }
+    public void setQuoteOrderQtyMarketAllowed(boolean quoteOrderQtyMarketAllowed) {
+        this.quoteOrderQtyMarketAllowed = quoteOrderQtyMarketAllowed;
+    }
 
-  public void setQuoteAsset(String quoteAsset) {
-    this.quoteAsset = quoteAsset;
-  }
+    public boolean isSpotTradingAllowed() {
+        return isSpotTradingAllowed;
+    }
 
-  public Integer getQuotePrecision() {
-    return quotePrecision;
-  }
+    public void setIsSpotTradingAllowed(boolean isSpotTradingAllowed) {
+        this.isSpotTradingAllowed = isSpotTradingAllowed;
+    }
 
-  public void setQuotePrecision(Integer quotePrecision) {
-    this.quotePrecision = quotePrecision;
-  }
+    public boolean isMarginTradingAllowed() {
+        return isMarginTradingAllowed;
+    }
 
-  public List<OrderType> getOrderTypes() {
-    return orderTypes;
-  }
+    public void setIsMarginTradingAllowed(boolean isMarginTradingAllowed) {
+        this.isMarginTradingAllowed = isMarginTradingAllowed;
+    }
 
-  public void setOrderTypes(List<OrderType> orderTypes) {
-    this.orderTypes = orderTypes;
-  }
+    public List<SymbolFilter> getFilters() {
+        return filters;
+    }
 
-  public boolean isIcebergAllowed() {
-    return icebergAllowed;
-  }
+    public void setFilters(List<SymbolFilter> filters) {
+        this.filters = filters;
+    }
 
-  public void setIcebergAllowed(boolean icebergAllowed) {
-    this.icebergAllowed = icebergAllowed;
-  }
+    public int getPricePrecision() {
+        return pricePrecision;
+    }
 
-  public boolean isOcoAllowed() {
-    return ocoAllowed;
-  }
+    public void setPricePrecision(int pricePrecision) {
+        this.pricePrecision = pricePrecision;
+    }
 
-  public void setOcoAllowed(boolean ocoAllowed) {
-    this.ocoAllowed = ocoAllowed;
-  }
+    public int getQuantityPrecision() {
+        return quantityPrecision;
+    }
 
-  public boolean isQuoteOrderQtyMarketAllowed() {
-    return quoteOrderQtyMarketAllowed;
-  }
+    public void setQuantityPrecision(int quantityPrecision) {
+        this.quantityPrecision = quantityPrecision;
+    }
 
-  public void setQuoteOrderQtyMarketAllowed(boolean quoteOrderQtyMarketAllowed) {
-    this.quoteOrderQtyMarketAllowed = quoteOrderQtyMarketAllowed;
-  }
+    /**
+     * @param filterType filter type to filter for.
+     * @return symbol filter information for the provided filter type.
+     */
+    public SymbolFilter getSymbolFilter(FilterType filterType) {
+        return filters.stream()
+                .filter(symbolFilter -> symbolFilter.getFilterType() == filterType)
+                .findFirst()
+                .get();
+    }
 
-  public boolean isSpotTradingAllowed() {
-    return isSpotTradingAllowed;
-  }
-
-  public void setIsSpotTradingAllowed(boolean isSpotTradingAllowed) {
-    this.isSpotTradingAllowed = isSpotTradingAllowed;
-  }
-
-  public boolean isMarginTradingAllowed() {
-    return isMarginTradingAllowed;
-  }
-
-  public void setIsMarginTradingAllowed(boolean isMarginTradingAllowed) {
-    this.isMarginTradingAllowed = isMarginTradingAllowed;
-  }
-
-  public List<SymbolFilter> getFilters() {
-    return filters;
-  }
-
-  public void setFilters(List<SymbolFilter> filters) {
-    this.filters = filters;
-  }
-
-  /**
-   * @param filterType filter type to filter for.
-   * @return symbol filter information for the provided filter type.
-   */
-  public SymbolFilter getSymbolFilter(FilterType filterType) {
-    return filters.stream()
-        .filter(symbolFilter -> symbolFilter.getFilterType() == filterType)
-        .findFirst()
-        .get();
-  }
-
-  @Override
-  public String toString() {
-    return new ToStringBuilder(this, BinanceApiConstants.TO_STRING_BUILDER_STYLE)
-        .append("symbol", symbol)
-        .append("status", status)
-        .append("baseAsset", baseAsset)
-        .append("baseAssetPrecision", baseAssetPrecision)
-        .append("quoteAsset", quoteAsset)
-        .append("quotePrecision", quotePrecision)
-        .append("orderTypes", orderTypes)
-        .append("icebergAllowed", icebergAllowed)
-        .append("filters", filters)
-        .toString();
-  }
+    @Override
+    public String toString() {
+        return new ToStringBuilder(this, BinanceApiConstants.TO_STRING_BUILDER_STYLE)
+                .append("symbol", symbol)
+                .append("status", status)
+                .append("baseAsset", baseAsset)
+                .append("baseAssetPrecision", baseAssetPrecision)
+                .append("quoteAsset", quoteAsset)
+                .append("quotePrecision", quotePrecision)
+                .append("orderTypes", orderTypes)
+                .append("icebergAllowed", icebergAllowed)
+                .append("filters", filters)
+                .append("quantityPrecision", quantityPrecision)
+                .append("pricePrecision", pricePrecision)
+                .toString();
+    }
 }

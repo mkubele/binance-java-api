@@ -420,16 +420,16 @@ client.onUserDataUpdateEvent(listenKey, response -> {
     // Print new balances of every available asset
     System.out.println(accountUpdateEvent.getBalances());
   } else {
-    OrderTradeUpdateEvent orderTradeUpdateEvent = response.getOrderTradeUpdateEvent();
+    OrderTradeUpdateEvent executionReport = response.getOrderTradeUpdateEvent();
     
     // Print details about an order/trade
-    System.out.println(orderTradeUpdateEvent);
+    System.out.println(executionReport);
 
     // Print original quantity
-    System.out.println(orderTradeUpdateEvent.getOriginalQuantity());
+    System.out.println(executionReport.getOriginalQuantity());
 
     // Or price
-    System.out.println(orderTradeUpdateEvent.getPrice());
+    System.out.println(executionReport.getPrice());
   }
 });
 ```

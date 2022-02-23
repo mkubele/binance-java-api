@@ -1,57 +1,46 @@
 package com.binance.api.examples;
 
-import com.binance.api.client.BinanceApiAsyncRestClient;
-import com.binance.api.client.BinanceApiClientFactory;
-import com.binance.api.client.domain.market.AggTrade;
-import com.binance.api.client.domain.market.Candlestick;
+import com.binance.api.client.api.async.BinanceApiSpotAsyncRestClient;
 import com.binance.api.client.domain.market.CandlestickInterval;
 import com.binance.api.client.domain.market.OrderBook;
-import com.binance.api.client.domain.market.TickerPrice;
-import com.binance.api.client.domain.market.TickerStatistics;
 import com.binance.api.client.exception.BinanceApiException;
-
-import java.util.List;
+import com.binance.api.client.factory.BinanceSpotApiClientFactory;
 
 /**
  * Examples on how to get market data information such as the latest price of a symbol, etc., in an async way.
  */
 public class MarketDataEndpointsExampleAsync {
 
-  public static void main(String[] args) {
-    BinanceApiClientFactory factory = BinanceApiClientFactory.newInstance();
-    BinanceApiAsyncRestClient client = factory.newAsyncRestClient();
+    public static void main(String[] args) {
+        BinanceSpotApiClientFactory factory = BinanceSpotApiClientFactory.newInstance();
+        BinanceApiSpotAsyncRestClient client = factory.newAsyncRestClient();
 
-    // Getting depth of a symbol (async)
-    client.getOrderBook("NEOETH", 10, (OrderBook response) -> {
-      System.out.println(response.getBids());
-    });
+        // Getting depth of a symbol (async)
+        client.getOrderBook("NEOETH", 10, (OrderBook response) -> {
+            System.out.println(response.getBids());
+        });
 
-    // Getting latest price of a symbol (async)
-    client.get24HrPriceStatistics("NEOETH", (TickerStatistics response) -> {
-      System.out.println(response);
-    });
+        // Getting latest price of a symbol (async)
+        client.get24HrPriceStatistics("NEOETH", System.out::println);
 
-    // Getting all latest prices (async)
-    client.getAllPrices((List<TickerPrice> response) -> {
-      System.out.println(response);
-    });
+        // Getting all latest prices (async)
+        client.getAllPrices(System.out::println);
 
-    // Getting agg trades (async)
-    client.getAggTrades("NEOETH", (List<AggTrade> response) -> System.out.println(response));
+        // Getting agg trades (async)
+        client.getAggTrades("NEOETH", System.out::println);
 
-    // Weekly candlestick bars for a symbol
-    client.getCandlestickBars("NEOETH", CandlestickInterval.WEEKLY,
-        (List<Candlestick> response) -> System.out.println(response));
+        // Weekly candlestick bars for a symbol
+        client.getCandlestickBars("NEOETH", CandlestickInterval.WEEKLY, System.out::println);
 
-    // Book tickers (async)
-    client.getBookTickers(response -> System.out.println(response));
+        // Book tickers (async)
+        client.getBookTickers(System.out::println);
 
-    // Exception handling
-    try {
-      client.getOrderBook("UNKNOWN", 10, response -> System.out.println(response));
-    } catch (BinanceApiException e) {
-      System.out.println(e.getError().getCode()); // -1121
-      System.out.println(e.getError().getMsg());  // Invalid symbol
+        // Exception handling
+        try {
+            client.getOrderBook("UNKNOWN", 10, System.out::println);
+        } catch (BinanceApiException e) {
+            System.out.println(e.getError().getCode()); // -1121
+            System.out.println(e.getError().getMsg());  // Invalid symbol
+        }
     }
-  }
 }

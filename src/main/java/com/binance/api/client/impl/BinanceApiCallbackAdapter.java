@@ -1,7 +1,7 @@
 package com.binance.api.client.impl;
 
-import com.binance.api.client.BinanceApiCallback;
-import com.binance.api.client.BinanceApiError;
+import com.binance.api.client.api.BinanceApiCallback;
+import com.binance.api.client.api.BinanceApiError;
 import com.binance.api.client.exception.BinanceApiException;
 import retrofit2.Call;
 import retrofit2.Callback;
